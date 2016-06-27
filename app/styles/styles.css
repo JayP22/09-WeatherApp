@@ -1,0 +1,69 @@
+body {
+	width: 80%;
+	margin: 5% 10%;
+}
+.form-control { 	/* text input */
+	width: 73%;
+	display: inline;
+}
+.btn btn-default {	/* submit button */
+	display: inline;
+}
+#title {   		 /* page title  background */
+	margin-bottom: 2%;
+	width: 80%;
+	padding: 2%;
+	text-align: center;
+	font-family: "OSwald";
+}
+.row {     /* panels */
+	width: 490%;
+	margin-top: 5%;
+}
+.btn-info {		/*  button  groups */
+	margin-bottom: 3px;
+}
+#header { 		/* page title */
+	font-size: 3em;
+}
+.header {		/* page subtitle */
+	font-size: 0.8em;
+}
+
+.ttitle {	/* city name */
+	font-weight: bolder;
+	font-size: 1.5em;
+}
+.tdtitle {  /* sub title */
+	font-weight: bold;
+}
+
+#table1 { 	/* city information table */
+	text-align: center;
+	margin-left: 6%;
+}
+p {		/* subtitle values */
+	color: green;
+}
+.table-striped {   /* search table */
+	text-align: right;
+	background-color: #e6f7ff;
+}
+.record {	/* search table name */
+	text-align: left;
+	font-weight: bold;
+}
+.time {   /* search table date */
+	color: #BBB;
+}
+
+
+
+
+
+
+
+
+
+
+

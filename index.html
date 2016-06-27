@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <!-- endbower -->
+
+    <!-- load external font from google.com -->
+	<link href='https://fonts.googleapis.com/css?family=Asset' rel='stylesheet' type='text/css'>	
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/styles.css">
+    <!-- endinject -->
+</head>
+
+<body ng-app="weatherApp">
+    <div ng-controller="MainController as vm">
+        
+        <div id="title" class="alert alert-info">
+            <!--  title background -->
+            <div id="header">
+                Origin Weather Application
+                <!--  title -->
+            </div>
+            <div>
+                <p class="header2"> Always know if you'll need an umbrella</p>
+                <!--  subtitle -->
+            </div>
+        </div>
+        <div>
+            <!--  button group -->
+            <button class="btn btn-info" ng-click="vm.checkWeather('San Diego')">San Diego</button>
+            <button class="btn btn-info" ng-click="vm.checkWeather('New York')">New York</button>
+            <button class="btn btn-info" ng-click="vm.checkWeather('Washington DC')">Washington DC</button>
+            <button class="btn btn-info" ng-click="vm.checkWeather('London')">London</button>
+            <button class="btn btn-info" ng-click="vm.checkWeather('Tokyo')">Tokyo</button>
+            <input type="text" class="form-control" placeholder="City Name ..." ng-model="vm.citysearch">
+            <input class="btn btn-default" ng-click="vm.checkWeather(vm.citysearch)" type="submit" value="Submit">
+        </div>
+        <div class="row">
+            <!--  panels begin -->
+            <div class="col-md-1">
+                <div class="panel panel-info">
+                    <div class="panel-heading">City Information</div>
+                    <div class="panel-body">
+						<!-- city information panel -->
+	                    <table id="table1">	
+		                    <tr class="t">
+		                    	<td></td>
+			                    <td>
+				                    <span class="ttitle">{{vm.names.name}}</span>	<!-- city name -->                    	
+				                    <p>Lat/Long:{{vm.names.coord.lat}},{{vm.names.coord.lon}}</p>
+			                    </td>
+			                    <td></td>
+		                    </tr>
+
+		                    <tr>
+		                        <td class="tds">	<!-- temperature, pressure and humidity -->
+			                    	<span class="tdtitle">Temperature(F)</span>
+			                    	<p>{{vm.names.main.temp_min}}</p>
+				                </td> 
+				                <td class="tds">  	
+				                    <span class="tdtitle">Pressure</span> 
+				                    <p>{{vm.names.main.temp_max}}</p>
+								</td>
+								<td class="tds">
+				                    <span class="tdtitle">Humidity</span>
+				                    <p>{{vm.names.wind.speed}}</p>
+								</td>
+		                    </tr>
+
+		                    <tr>
+		                    	<td class="tds">			    <!-- min and max temperatures and wind speed -->               
+				                    <span class="tdtitle">Lowest Temp(F)</span>
+				                    <p>{{vm.names.main.temp_min}}</p>
+				                </td>
+				                <td class="tds">    
+				                    <span class="tdtitle">Highest Temp(F)</span>
+				                    <p>{{vm.names.main.temp_max}}</p>
+				                </td>
+				                <td class="tds">    
+				                    <span class="tdtitle">Wind Speed</span>
+				                    <p>{{vm.names.wind.speed}}</p>
+		                    	</td>
+		                    </tr>	
+
+						</table>
+                    </div>
+                </div>
+            </div>
+            <!-- search panel -->
+            <div class="col-md-1">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Search History</div>
+                    <div class="panel-body">
+                    	<table id="table2" class="table table-striped">
+                    		<tr ng-repeat="record in vm.searches">
+                    			<td class="record">{{record.name}}</td>
+
+                    			<td class="time">{{record.time}}</td>
+                    		</tr>	
+                    	</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- panels end -->
+        </div>
+        <!-- end colaps -->
+    </div>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/main.controller.js"></script>
+    <script src="/app/main.factory.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
